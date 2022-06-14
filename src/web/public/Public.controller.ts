@@ -6,13 +6,31 @@ export class PublicController {
 
     @Get()
     @Render('pages/public/home')
-    home() {
+    getHomeView() {
         // Return the home view
     }
 
     @Get('/cartelera')
     @Render('pages/public/movies')
-    movies() {
+    getMoviesView() {
         // Return the movies view
+    }
+
+    @Get('/cartelera/:movieId')
+    @Render('pages/public/movie')
+    getMovieView() {
+        // Return the specific movie view
+    }
+
+    @Get('/salas')
+    @Render('pages/public/rooms')
+    getRoomTypesView() {
+        // Return the movies view
+    }
+
+    @Get('/nosotros')
+    @Render('pages/public/about')
+    getAboutView() {
+        // Return the about view
     }
 }
