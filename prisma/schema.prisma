@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  @@map("users")      // Name of the DB table
+  id        Int       @id @default(autoincrement())
+  name      String
+  email     String
+  password  String
+  isDeleted Boolean   @default(false)
+}
+
+model RoomType { 
+  @@map("roomType")      // Name of the DB table
+  id        Int       @id @default(autoincrement())
+  name      String
+  isVisible Boolean   @default(true)
+  Rooms     Room[]
+}
+
+model Room {
+  @@map("room")      // Name of the DB table
+  id          Int       @id @default(autoincrement())
+  roomTypeId  Int
+  nro         Int
+  isVisible   Boolean   @default(true)
+  RoomType    RoomType  @relation(fields: [roomTypeId], references: [id])
+  Seats       RoomSeats[]
+  Shows       Show[]
+}
+
+model RoomSeats {
+  @@map("roomSeats")      // Name of the DB table
+  roomId      Int
+  id          Int       @default(autoincrement())
+  numberX     Int
+  numberY     Int
+  enabled     Boolean   @default(true)
+  RoomType    Room      @relation(fields: [roomId], references: [id])
+  Reserved    ReservedSeats[]
+  @@id([roomId, id])
+}
+
+model Movie {
+  @@map("movie")      // Name of the DB table
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String
+  duration    Int
+  isVisible   Boolean
+  Languages   MovieLanguages[]
+}
+
+model MovieLanguages {
+  @@map("movieLanguages")      // Name of the DB table
+  movieId     Int
+  language    String
+  isVisible   Boolean
+  Movie       Movie     @relation(fields: [movieId], references: [id])
+  Shows       Show[]
+  @@id([movieId, language])
+}
+
+
+model Show {
+  @@map("show")      // Name of the DB table
+  id            Int                 @id @default(autoincrement())
+  roomId        Int
+  movieId       Int
+  language      String
+  dateTime      DateTime
+  Movie         MovieLanguages      @relation(fields: [movieId, language], references: [movieId, language])
+  Room          Room                @relation(fields: [roomId], references: [id])
+  Reservations  Reservation[]
+}
+
+
+model Reservation {
+  @@map("reservation")      // Name of the DB table
+  id            Int                @id @default(autoincrement())
+  showId        Int
+  clientName    String
+  clientEmail   String
+  clientPhone   String
+  paidAt        DateTime?
+  Show          Show              @relation(fields: [showId], references: [id])
+  Seats         ReservedSeats[]
+}
+
+model ReservedSeats {
+  @@map("reservationSeats")
+  reservationId   Int
+  roomId          Int
+  seatId          Int
+  Reservation     Reservation       @relation(fields: [reservationId], references: [id])
+  Seat            RoomSeats         @relation(fields: [roomId, seatId], references: [roomId, id])
+  @@id([reservationId, roomId, seatId])
+}
