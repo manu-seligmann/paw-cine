@@ -55,7 +55,11 @@ model Movie {
   id          Int       @id @default(autoincrement())
   name        String
   description String
+  type        String
+  rate        String
   duration    Int
+  synopsis    String
+  trailerUrl  String
   isVisible   Boolean   @default(true)
   Languages   MovieLanguages[]
 }

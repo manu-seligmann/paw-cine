@@ -22,7 +22,7 @@ CREATE TABLE "roomType" (
 CREATE TABLE "room" (
     "id" SERIAL NOT NULL,
     "roomTypeId" INTEGER NOT NULL,
-    "nro" INTEGER NOT NULL,
+    "number" INTEGER NOT NULL,
     "isVisible" BOOLEAN NOT NULL DEFAULT true,
 
     CONSTRAINT "room_pkey" PRIMARY KEY ("id")
@@ -44,8 +44,12 @@ CREATE TABLE "movie" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "rate" TEXT NOT NULL,
     "duration" INTEGER NOT NULL,
-    "isVisible" BOOLEAN NOT NULL,
+    "synopsis" TEXT NOT NULL,
+    "trailerUrl" TEXT NOT NULL,
+    "isVisible" BOOLEAN NOT NULL DEFAULT true,
 
     CONSTRAINT "movie_pkey" PRIMARY KEY ("id")
 );
@@ -54,7 +58,7 @@ CREATE TABLE "movie" (
 CREATE TABLE "movieLanguages" (
     "movieId" INTEGER NOT NULL,
     "language" TEXT NOT NULL,
-    "isVisible" BOOLEAN NOT NULL,
+    "isVisible" BOOLEAN NOT NULL DEFAULT true,
 
     CONSTRAINT "movieLanguages_pkey" PRIMARY KEY ("movieId","language")
 );
