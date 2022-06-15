@@ -31,7 +31,7 @@ model Room {
   @@map("room")      // Name of the DB table
   id          Int       @id @default(autoincrement())
   roomTypeId  Int
-  nro         Int
+  number      Int
   isVisible   Boolean   @default(true)
   RoomType    RoomType  @relation(fields: [roomTypeId], references: [id])
   Seats       RoomSeats[]
@@ -56,7 +56,7 @@ model Movie {
   name        String
   description String
   duration    Int
-  isVisible   Boolean
+  isVisible   Boolean   @default(true)
   Languages   MovieLanguages[]
 }
 
@@ -64,7 +64,7 @@ model MovieLanguages {
   @@map("movieLanguages")      // Name of the DB table
   movieId     Int
   language    String
-  isVisible   Boolean
+  isVisible   Boolean   @default(true)
   Movie       Movie     @relation(fields: [movieId], references: [id])
   Shows       Show[]
   @@id([movieId, language])
