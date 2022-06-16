@@ -1,1 +1,28 @@
-<h1>Este es la vista de la reserva</h1>
+{{> parts/base}}
+{{#*inline "main-block"}}
+<section>
+    <h2>Reserva tu entrada</h2>
+    <form action="">
+        <label>
+            <select name="language">
+                <option value="spanish">Español</option>
+                <option value="english">ingles</option>
+            </select>
+        </label>
+        <label>
+            <select name="room">
+                <option value="room3d">Sala 3d</option>
+                <option value="room4d">Sala 4d</option>
+            </select>
+        </label>
+        <label>
+            <input type="text" name="movie" placeholder="pelicula">
+        </label>
+        <label>
+            <input type="date" name="date" placeholder="fecha">
+        </label>
+        <input type="submit" name="comenzarReserva" value="Reservar" class="b-submit">
+    </form>
+</section>
+{{/inline}}
+{{parts/base}}

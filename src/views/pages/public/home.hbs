@@ -1,1 +1,34 @@
-<h1>Esta es la vista de Home</h1>
+{{> parts/base}}
+{{#*inline "main-block"}}
+    <section>
+        <h2>Reserva tu entrada</h2>
+        <form action="">
+            <label>
+                <input type="text" name="movie" placeholder="pelicula">
+            </label>
+            <label >
+                <input type="date" name="date" placeholder="fecha">
+            </label>
+            <input type="submit" name="comenzarReserva" value="Reservar" class="b-submit">
+        </form>
+    </section>
+    <section>
+        <p>carrusel</p>
+    </section>
+    <section>
+        <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+                <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+                <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+    </section>
+{{/inline}}
+
+{{parts/base}}

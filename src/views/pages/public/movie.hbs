@@ -1,1 +1,45 @@
-<h1>Esta es la vista de una pelicula</h1>
+<h1>Esta es la vista de una pelicula</h1>{{> parts/base}}
+{{#*inline "main-block"}}
+<h2>Reserva tu entrada</h2>
+<section>
+    <form action="">
+        <label>
+            <select name="language">
+                <option value="spanish">Español</option>
+                <option value="english">ingles</option>
+            </select>
+        </label>
+        <label>
+            <select name="room">
+                <option value="room3d">Sala 3d</option>
+                <option value="room4d">Sala 4d</option>
+            </select>
+        </label>
+        <label>
+            <input type="date" name="date" placeholder="fecha">
+        </label>
+        <input type="submit" name="comenzarReserva" value="Reservar" class="b-submit">
+    </form>
+</section>
+<section>
+    <h2>Titulo Pelicula</h2>
+    <figure>
+        <img src="" height="200" alt="">
+        <figcaption>
+           Genero:animacion
+           Clasificacion: ATP
+           Duracion: 2 horas
+        </figcaption>
+</section>
+<section>
+    <h3>Sinopsis</h3>
+    <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+        make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    </p>
+    <p>trailer</p>
+</section>
+
+{{/inline}}
+{{parts/base}}
