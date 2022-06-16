@@ -1,34 +1,55 @@
 {{> parts/base}}
+{{#> head-block}}
+<script src="/scripts/utils.js"></script>
+<script src="/scripts/index.js"></script>
+{{/head-block}}
 {{#*inline "main-block"}}
-    <section>
-        <h2>Reserva tu entrada</h2>
-        <form action="">
-            <label>
-                <input type="text" name="movie" placeholder="pelicula">
-            </label>
-            <label >
-                <input type="date" name="date" placeholder="fecha">
-            </label>
+<section>
+    <h2>Reserva tu entrada</h2>
+    <form action="">
+        <fieldset>
+            <input type="text" name="movie" placeholder="pelicula">
+            <input type="date" name="date" placeholder="fecha">
             <input type="submit" name="comenzarReserva" value="Reservar" class="b-submit">
-        </form>
+        </fieldset>
+    </form>
+</section>
+<section id="carousel" class="carousel">
+    <section id="carousel-slides-container">
+        <figure class="carousel-slide">
+            <img src="/image/buzz.jpg" alt="buzz" height="400">
+        </figure>
+        <figure class="carousel-slide">
+            <img src="/image/tordoRaro.png" alt="buzz" height="400">
+        </figure>
     </section>
-    <section>
-        <p>carrusel</p>
-    </section>
-    <section>
-        <article>
-            <p>titulo</p>
-            <p>duracion</p>
-        </article>
-                <article>
-            <p>titulo</p>
-            <p>duracion</p>
-        </article>
-                <article>
-            <p>titulo</p>
-            <p>duracion</p>
-        </article>
-    </section>
+</section>
+<section>
+    <article>
+        <p>titulo</p>
+        <p>duracion</p>
+    </article>
+    <article>
+        <p>titulo</p>
+        <p>duracion</p>
+    </article>
+    <article>
+        <p>titulo</p>
+        <p>duracion</p>
+    </article>
+    <article>
+        <p>titulo</p>
+        <p>duracion</p>
+    </article>
+    <article>
+        <p>titulo</p>
+        <p>duracion</p>
+    </article>
+    <article>
+        <p>titulo</p>
+        <p>duracion</p>
+    </article>
+</section>
 {{/inline}}
 
 {{parts/base}}

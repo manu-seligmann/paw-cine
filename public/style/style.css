@@ -1,0 +1,136 @@
+@import url(./reset.css);
+
+
+/* Comienzo de declaracion de variables */
+:root {
+
+
+	/* Colores */
+	--principal-color1: #c70039;
+	--principal-color2: #ffc305;
+	--secondary-color1: #8a8a8d3a;
+	--secondary-color2: #8a8a8d;
+	--secondary-color3: #4f2c7f;
+	--text: #fff;
+	--background: #000;
+
+	/* Paddings y margenes */
+	--external-padding-size: 2em;
+
+	/* Tamaños de letras */
+	--nav-font-size: 18px;
+	--main-header-title-size: 5rem; /* Header de la pagina */
+	--header-description-size: 1.8rem; /* Descripcion del header de la pagina */
+	--section-title-size: 3.5rem; /* Titulo de los sections */
+	--section-description-size: 1.5rem; /* Descripcion de los sections */
+	--footer-header-title-size: 1.5rem;
+	--footer-description-text : 1rem;
+
+	/*Tamaño imagenes*/
+	--height-img: 30rem;
+	--height-img-transition:32rem;
+
+}
+
+/*Main style*/
+
+body{
+    background-color: var(--background);
+    color: var(--text);
+}
+
+
+/*Nav style*/
+
+nav {
+	border-bottom: 1px solid var(--principal-color2);
+	position: sticky; 
+	top: 0;
+	background-color:var(--background);
+	z-index: 2;
+}
+
+nav input {
+	display: none;
+}
+
+nav label{
+	display: none;
+}
+
+nav > ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+nav > ul > li> a {
+	display: block;
+	font-family: var(--secondary-font);
+	font-size: var(--nav-font-size);
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--principal-color2);
+	padding: 10px;
+
+    
+}
+
+nav a:hover {
+	background-color: var(--secondary-color2);
+}
+
+/* Reserva */
+
+h2{
+    padding: 2rem;
+    text-align: center;
+    font-size: var(--header-description-size);
+    color: var(----principal-color2);
+}
+
+form {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 1rem;
+}
+
+fieldset {
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	width:100%;
+}
+
+input {
+	padding: 1rem;
+	width: 30%;
+	background-color: var(--secondary-color2) ;
+	font-size: var(--nav-font-size);
+	font-weight: 800;
+	color:  var(--principal-color2);
+}
+
+input::placeholder {
+	color:  var(--principal-color2);
+}
+
+
+article {
+	border: 1px solid var(--text);
+	display: inline-block;
+	padding: 10rem 7rem ;
+	margin: 0.5rem;
+}
+
+/* footer */
+footer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(1, 1fr);
+	grid-gap: 20px;
+	padding: 4rem 1rem;
+	text-align: center;
+}
+
