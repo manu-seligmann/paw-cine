@@ -1,0 +1,8 @@
+<section class="movies-container">
+        {{#each movies}}
+            <figure id="{{this.id}}" class="movie">
+                    <img src="{{this.imageUrl}}" alt="poster-{{this.name}}">
+                    <figcaption class="movie-info">{{ this.name }}</figcaption>
+            </figure>
+        {{/each}}
+</section>

@@ -3,7 +3,7 @@ import { ShowService } from './service/show.service';
 import { ShowController } from './controller/show.controller';
 
 @Module({
-  providers: [ShowService],
-  controllers: [ShowController]
+    providers: [ShowService],
+    controllers: [ShowController],
 })
 export class ShowModule {}

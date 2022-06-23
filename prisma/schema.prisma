@@ -23,6 +23,7 @@ model RoomType {
   @@map("roomType")      // Name of the DB table
   id        Int       @id @default(autoincrement())
   name      String
+  price     Float
   isVisible Boolean   @default(true)
   Rooms     Room[]
 }
@@ -40,13 +41,14 @@ model Room {
 
 model RoomSeats {
   @@map("roomSeats")      // Name of the DB table
-  roomId      Int
-  id          Int       @default(autoincrement())
-  numberX     Int
-  numberY     Int
-  enabled     Boolean   @default(true)
-  RoomType    Room      @relation(fields: [roomId], references: [id])
-  Reserved    ReservedSeats[]
+  roomId          Int
+  id              Int       @default(autoincrement())
+  numberX         Int
+  numberY         Int
+  enabled         Boolean   @default(true)
+  RoomType        Room      @relation(fields: [roomId], references: [id])
+  Reserved        ReservedSeats[]
+  PreReserved     PreReservedSeats[]
   @@id([roomId, id])
 }
 
@@ -77,27 +79,30 @@ model MovieLanguages {
 
 model Show {
   @@map("show")      // Name of the DB table
-  id            Int                 @id @default(autoincrement())
-  roomId        Int
-  movieId       Int
-  language      String
-  dateTime      DateTime
-  Movie         MovieLanguages      @relation(fields: [movieId, language], references: [movieId, language])
-  Room          Room                @relation(fields: [roomId], references: [id])
-  Reservations  Reservation[]
+  id                  Int                 @id @default(autoincrement())
+  roomId              Int
+  movieId             Int
+  language            String
+  dateTime            DateTime
+  Movie               MovieLanguages      @relation(fields: [movieId, language], references: [movieId, language])
+  Room                Room                @relation(fields: [roomId], references: [id])
+  Reservations        Reservation[]
+  PreReservations     PreReservation[]
 }
 
 
 model Reservation {
   @@map("reservation")      // Name of the DB table
-  id            Int                @id @default(autoincrement())
-  showId        Int
-  clientName    String
-  clientEmail   String
-  clientPhone   String
-  paidAt        DateTime?
-  Show          Show              @relation(fields: [showId], references: [id])
-  Seats         ReservedSeats[]
+  id                    Int                @id @default(autoincrement())
+  showId                Int
+  clientName            String
+  clientEmail           String
+  clientPhone           String
+  createdAt             DateTime          @default(now())
+  paidAt                DateTime?
+  Show                  Show              @relation(fields: [showId], references: [id])
+  Seats                 ReservedSeats[]
+  MercadoPagoPayment    MercadoPagoPayment?
 }
 
 model ReservedSeats {
@@ -108,4 +113,40 @@ model ReservedSeats {
   Reservation     Reservation       @relation(fields: [reservationId], references: [id])
   Seat            RoomSeats         @relation(fields: [roomId, seatId], references: [roomId, id])
   @@id([reservationId, roomId, seatId])
+}
+
+model PreReservation {
+  @@map("prePeservation")           // Name of the DB table
+  id                    Int                 @id @default(autoincrement())
+  showId                Int
+  clientName            String
+  clientEmail           String
+  clientPhone           String
+  createdAt             DateTime            @default(now())
+  expiresAt             DateTime
+  Show                  Show                @relation(fields: [showId], references: [id])
+  Seats                 PreReservedSeats[]
+  MercadoPagoPayment    MercadoPagoPayment?
+}
+
+model PreReservedSeats {
+  @@map("preReservationSeats")
+  preReservationId   Int
+  roomId             Int
+  seatId             Int
+  Reservation        PreReservation       @relation(fields: [preReservationId], references: [id])
+  Seat               RoomSeats         @relation(fields: [roomId, seatId], references: [roomId, id])
+  @@id([preReservationId, roomId, seatId])
+}
+
+model MercadoPagoPayment {
+ @@map("mercadoPagoPayment")
+  id                Int                 @id @default(autoincrement())
+  uuid              String              @unique
+  total             Float
+  preferenceId      String
+  preReservationId  Int?
+  reservationId     Int?
+  PreReservation    PreReservation?      @relation(fields: [preReservationId], references: [id])
+  Reservation       Reservation?      @relation(fields: [reservationId], references: [id])
 }

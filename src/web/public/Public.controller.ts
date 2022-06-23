@@ -33,4 +33,35 @@ export class PublicController {
     getAboutView() {
         // Return the about view
     }
+
+    @Get('/reservacion')
+    @Render('pages/public/reservation')
+    getReservationView() {
+        // Return the reservation view
+        return {
+            documentName: 'Reserva',
+            movies: [
+                {
+                    id: 1,
+                    name: 'movie 1',
+                    imageUrl: 'https://picsum.photos/200/300',
+                },
+                {
+                    id: 2,
+                    name: 'movie 2',
+                    imageUrl: 'https://picsum.photos/200/300',
+                },
+                {
+                    id: 3,
+                    name: 'movie 3',
+                    imageUrl: 'https://picsum.photos/200/300',
+                },
+                {
+                    id: 4,
+                    name: 'movie 4',
+                    imageUrl: 'https://picsum.photos/200/300',
+                },
+            ],
+        };
+    }
 }

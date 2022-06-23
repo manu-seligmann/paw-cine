@@ -1,10 +1,5 @@
-@import url(./reset.css);
-
-
 /* Comienzo de declaracion de variables */
 :root {
-
-
 	/* Colores */
 	--principal-color1: #c70039;
 	--principal-color2: #ffc305;
@@ -15,7 +10,8 @@
 	--background: #000;
 
 	/* Paddings y margenes */
-	--external-padding-size: 2em;
+	--body-side-padding: 1rem;
+	--external-padding-size: 2rem;
 
 	/* Tamaños de letras */
 	--nav-font-size: 18px;
@@ -29,14 +25,14 @@
 	/*Tamaño imagenes*/
 	--height-img: 30rem;
 	--height-img-transition:32rem;
-
 }
 
 /*Main style*/
 
-body{
+body {
     background-color: var(--background);
     color: var(--text);
+	padding: 0 var(--body-side-padding);
 }
 
 
@@ -72,8 +68,6 @@ nav > ul > li> a {
 	text-decoration: none;
 	color: var(--principal-color2);
 	padding: 10px;
-
-    
 }
 
 nav a:hover {
@@ -82,7 +76,7 @@ nav a:hover {
 
 /* Reserva */
 
-h2{
+h2 {
     padding: 2rem;
     text-align: center;
     font-size: var(--header-description-size);
