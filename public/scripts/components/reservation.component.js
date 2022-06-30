@@ -1,111 +1,48 @@
 class ReservationComponent {
-	constructor() {
-		this.dateFrom = null;
-		this.dateTo = null;
-		this.adultsAmount = null;
-		this.childrenAmount = null;
-		this.observation = null;
-		this.roomsAmount = null;
-		this.roomTypes = [];
+    constructor() {
+        this.showId = null;
+        this.seatsId = [];
+        this.clientName = null;
+        this.clientEmail = null;
+        this.clientPhone = null;
+    }
 
-		this.nameAndLastName = null;
-		this.email = null;
-		this.phone = null;
-	}
+    setShowId(showId) {
+        this.showId = showId;
+    }
 
-	setDateFrom(date) {
-		this.dateFrom = date;
-	}
-	
-	getDateFrom() {
-		return this.dateFrom;
-	}
-	
-	setDateTo(date) {
-		this.dateTo = date;
-	}
-	
-	getDateTo() {
-		return this.dateTo;
-	}
+    setSeatsId(seatsId) {
+        this.seatsId = seatsId;
+    }
 
-	setAdultsAmount(amount) {
-		this.adultsAmount = amount;
-	}
+    setClientName(name) {
+        this.clientName = name;
+    }
 
-	getAdultsAmount() {
-		return this.adultsAmount;
-	}
+    setClientEmail(email) {
+        this.clientEmail = email;
+    }
 
-	setChildrenAmount(amount) {
-		this.childrenAmount = amount;
-	}
+    setClientPhone(phone) {
+        this.clientPhone = phone;
+    }
 
-	getChildsAmount() {
-		return this.childrenAmount
-	}
-
-	setRoomsAmount(amount) {
-		this.roomsAmount = amount;
-	}
-
-	getRoomsAmount() {
-		return this.roomsAmount;
-	}
-
-	setRoomTypes(roomTypesId) {
-		this.roomTypes = roomTypesId;
-	}
-
-	resetRoomTypes() {
-		this.roomTypes = [];
-	}
-
-	setObservation(observation) {
-		this.observation = observation;
-	}
-
-	setUserName(name) {
-		this.nameAndLastName = name;
-	}
-
-	getUserName() {
-		return this.nameAndLastName;
-	}
-
-	setUserEmail(email) {
-		this.email = email;
-	}
-
-	getUserEmail() {
-		return this.email;
-	}
-
-	setUserPhone(phone) {
-		this.phone = phone;
-	}
-
-	getUserPhone() {
-		return this.phone;
-	}
-
-	async getReservationPayment(paymentMethod, callback = () => {}) {
-		Utils.makeAjaxCall({
-			method: 'POST',
-			url: '/reservation/payment',
-			body: {
-				paymentMethod,
-				dateFrom: this.dateFrom,
-				dateTo: this.dateTo,
-				adultsAmount: this.adultsAmount,
-				chidrenAmount: this.childrenAmount,
-				user: {
-					name: this.nameAndLastName,
-					email: this.email,
-					phone: this.phone
-				}
-			},
-			callback
-		})
-	}
+    async createPreReservation() {
+        return new Promise((res, rej) => {
+            Utils.makeAjaxCall({
+                method: 'POST',
+                url: '/api/pre-reservacion',
+                body: {
+                    showId: this.showId,
+                    seatsId: this.seatsId,
+                    clientName: this.clientName,
+                    clientEmail: this.clientEmail,
+                    clientPhone: this.clientPhone,
+                },
+                callback: (responsePayload) => {
+                    return res(responsePayload);
+                },
+            });
+        });
+    }
 }

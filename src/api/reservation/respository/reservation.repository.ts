@@ -253,12 +253,14 @@ export class ReservationRepository {
         return reservationCreated;
     }
 
+    
+
     public async createReservation(
         showId: number,
         seatsId: number[],
         clientName: string,
         clientEmail: string,
-        clientPhone,
+        clientPhone: string,
         paidAt?: string,
     ) {
         const show = await this.prismaService.show.findUnique({

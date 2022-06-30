@@ -2,32 +2,30 @@
 
 {{#*inline "head-block" }}
     <link href="/style/movie-displayer.css" rel="stylesheet" type="text/css">
+     <script src="/scripts/utils.js"></script> 
+     <script src="/scripts/reservacion.script.js"></script> 
 {{/inline}}
 
 {{#*inline "main-block" }}
-    <section>
+    <section style="text-align: center;">
         <h2>Reserva tu entrada</h2>
-        <form action="">
+        <section>
+            <select id="show-selected" name="room">
+                <option value="1">Pelicula 1 - Español - Sala 2D</option>
+            </select>
             <label>
-                <select name="language">
-                    <option value="spanish">Español</option>
-                    <option value="english">ingles</option>
-                </select>
+                <input id="seats-input" type="text" placeholder="Butacas ID">
             </label>
-            <label>
-                <select name="room">
-                    <option value="room3d">Sala 3d</option>
-                    <option value="room4d">Sala 4d</option>
-                </select>
-            </label>
-            <label>
-                <input type="text" name="movie" placeholder="pelicula">
-            </label>
-            <label>
-                <input type="date" name="date" placeholder="fecha">
-            </label>
-            <input type="submit" name="comenzarReserva" value="Reservar" class="b-submit">
-        </form>
+        </section>
+        <section>
+                <input id="name-input" type="text" placeholder="Nombre">
+                <input id="email-input" type="text" placeholder="Email">
+                <input id="phone-input" type="text" placeholder="Telefono">
+        </section>
+            <input id="reservation-submit-input" type="submit" value="Reservar" class="b-submit">
+    </section>
+    <section style="text-align: center;">
+        <a id="paymentUrl" href="cualquiqera" target="_blank" style="display: none;">Link de pago</a>
     </section>
     {{!-- <section id="movie selection">
         {{> parts/moviesDisplayer }}

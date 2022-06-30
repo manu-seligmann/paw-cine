@@ -21,5 +21,6 @@ async function bootstrap() {
     app.setViewEngine('hbs');
 
     await app.listen(3000);
+    console.log(await app.getUrl());
 }
 bootstrap();

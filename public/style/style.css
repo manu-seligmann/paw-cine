@@ -1,13 +1,13 @@
+@import url(./reset.css);
+
 /* Comienzo de declaracion de variables */
 :root {
 	/* Colores */
-	--principal-color1: #c70039;
-	--principal-color2: #ffc305;
-	--secondary-color1: #8a8a8d3a;
-	--secondary-color2: #8a8a8d;
-	--secondary-color3: #4f2c7f;
-	--text: #fff;
-	--background: #000;
+	--principal-color1: #193081;
+	--principal-color2: #141A32;
+	--principal-color3: #3B5ACA;
+	--secondary-color1: #FFC56E;
+	--secondary-color2: #007AFF;
 
 	/* Paddings y margenes */
 	--body-side-padding: 1rem;
@@ -30,27 +30,26 @@
 /*Main style*/
 
 body {
-    background-color: var(--background);
-    color: var(--text);
-	padding: 0 var(--body-side-padding);
+    background-color: var(--principal-color3);
 }
 
 
 /*Nav style*/
 
 nav {
-	border-bottom: 1px solid var(--principal-color2);
-	position: sticky; 
+	display: block;
+	position: sticky;
 	top: 0;
-	background-color:var(--background);
 	z-index: 2;
+	background-color: var(--principal-color2);
+	color: white
 }
 
 nav input {
 	display: none;
 }
 
-nav label{
+nav label {
 	display: none;
 }
 
@@ -66,7 +65,7 @@ nav > ul > li> a {
 	font-size: var(--nav-font-size);
 	font-weight: 600;
 	text-decoration: none;
-	color: var(--principal-color2);
+	color: white;
 	padding: 10px;
 }
 
@@ -98,16 +97,16 @@ fieldset {
 }
 
 input {
-	padding: 1rem;
+	/* padding: 1rem;
 	width: 30%;
 	background-color: var(--secondary-color2) ;
 	font-size: var(--nav-font-size);
 	font-weight: 800;
-	color:  var(--principal-color2);
+	color:  var(--principal-color2); */
 }
 
 input::placeholder {
-	color:  var(--principal-color2);
+	/* color:  var(--principal-color2); */
 }
 
 
@@ -128,3 +127,32 @@ footer {
 	text-align: center;
 }
 
+/* Custom classes */
+
+.reservation-button {
+	padding: 0.5rem 1.2rem;
+	font-weight: bold;
+	font-size: 1.5rem;
+	border-radius: 50px;
+	border: none;
+	box-shadow: 1px 1px 6px 0px #000000;
+	cursor: pointer;
+}
+.reservation-button::before {
+    display: inline-block;
+	content: "";
+	background-image: url('/icons/ticket_icon.png');
+	background-size: 25px 25px;
+    width: 25px;
+    height: 25px;
+    margin: 0 6px 0 0; 
+}
+
+.button-color-1 {
+	background-color: var(--principal-color1);
+	color: white;
+}
+
+.button-color-1:hover {
+	background-color: var(--secondary-color2);
+}

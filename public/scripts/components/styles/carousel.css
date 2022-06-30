@@ -1,10 +1,85 @@
-.carousel-slide {
-	position: relative;
-}
-
 .carousel {
 	position: relative;
-	padding: 2rem 1rem 0.5rem 1rem ;
+	height: 350px;
+}
+
+.slides-container {
+	position: relative;
+	height: 100%;
+}
+
+.carousel-slide {
+	position: relative;
+	height: 100%;
+}
+
+.carousel-slide-image {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
+
+.carousel-slide-description {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(28, 28, 28, 0.68);
+	color: white;
+}
+
+.carousel-slide-description-container {
+	position: relative;
+	text-align: center;
+	max-width: 60rem;
+	width: 80%;
+	margin: 1rem auto 1rem auto;
+}
+
+.description-title {
+	text-align: left;
+	font-size: 2rem;
+	font-weight: bold;
+	/* margin: 1rem; */
+}
+
+.description-text {
+	font-size: 1.5rem;
+	text-align: left;
+}
+
+.description-text-item {
+	display: inline-block;
+	margin: 1rem;
+}
+
+.description-text-key {
+	font-weight: bold;
+	color: var(--secondary-color1);
+}
+
+.description-text-value {
+	color: white;
+}
+
+.description-text-key, .description-text-value {
+	display: inline-block;
+}
+
+.reservation-button-container {
+	/* position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 1rem; */
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	/* left: 50%; */
+	/* -ms-transform: translate(-50%, -50%); */
+	transform: translateY(-50%);
 }
 
 /* Hide the images by default */

@@ -8,6 +8,7 @@ export class PublicController {
     @Render('pages/public/home')
     getHomeView() {
         // Return the home view
+        return {};
     }
 
     @Get('/cartelera')

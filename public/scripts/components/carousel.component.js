@@ -20,6 +20,7 @@ class CarouselComponent {
     }
 
     onLoadScript() {
+        return;
         const slidesContainer =
             this.carouselElement.children['carousel-slides-container'];
 

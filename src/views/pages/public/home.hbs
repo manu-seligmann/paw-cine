@@ -1,55 +1,83 @@
 {{> parts/base}}
 {{#> head-block}}
-<script src="/scripts/utils.js"></script>
-<script src="/scripts/index.js"></script>
+    <title> Inicio | PAW Cine </title>
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/home.script.js"></script>
 {{/head-block}}
+
 {{#*inline "main-block"}}
-<section>
-    <h2>Reserva tu entrada</h2>
-    <form action="">
-        <fieldset>
-            <input type="text" name="movie" placeholder="pelicula">
-            <input type="date" name="date" placeholder="fecha">
-            <input type="submit" name="comenzarReserva" value="Reservar" class="b-submit">
-        </fieldset>
-    </form>
-</section>
-<section id="carousel" class="carousel">
-    <section id="carousel-slides-container">
-        <figure class="carousel-slide">
-            <img src="/image/buzz.jpg" alt="buzz" height="400">
-        </figure>
-        <figure class="carousel-slide">
-            <img src="/image/tordoRaro.png" alt="buzz" height="400">
-        </figure>
+    <section id="carousel" class="carousel">
+        <section id="carousel-slides-container" class="slides-container">
+            <figure class="carousel-slide">
+                <img class="carousel-slide-image" src="/images/banners/Doctor-Strange-en-el-Multiverso-de-la-Locura.jpg" alt="Dr Strange">
+                <figcaption class="carousel-slide-description">
+                    <section class="carousel-slide-description-container">
+                        {{!-- Movie Title --}}
+                        <section>
+                            <p class="description-title">Doctor Strange en el Multiverso de la Locura</p>
+                        </section>
+                        {{!-- Movie Data --}}
+                        <section class="description-text">
+                            <section class="description-text-item">
+                                <p class="description-text-key">Calificación:</p>
+                                <p class="description-text-value">4.2/5</p>
+                            </section>
+                            <section class="description-text-item">
+                                <p class="description-text-key">Duración:</p>
+                                <p class="description-text-value">120 min</p>
+                            </section>
+                        </section>
+                        {{!-- Reservation Button --}}
+                        <section class="reservation-button-container">
+                            <a class="reservation-button button-color-1">
+                                Reservar
+                            </a>
+                        </section>
+                    </section>
+                </figcaption>
+            </figure>
+            {{!-- <figure class="carousel-slide">
+                <img src="/images/tordoRaro.png" alt="buzz" height="400">
+            </figure> --}}
+        </section>
     </section>
-</section>
-<section>
-    <article>
-        <p>titulo</p>
-        <p>duracion</p>
-    </article>
-    <article>
-        <p>titulo</p>
-        <p>duracion</p>
-    </article>
-    <article>
-        <p>titulo</p>
-        <p>duracion</p>
-    </article>
-    <article>
-        <p>titulo</p>
-        <p>duracion</p>
-    </article>
-    <article>
-        <p>titulo</p>
-        <p>duracion</p>
-    </article>
-    <article>
-        <p>titulo</p>
-        <p>duracion</p>
-    </article>
-</section>
+    <section>
+        <h2>Reserva tu entrada</h2>
+        <form action="">
+            <fieldset>
+                <input type="text" name="movie" placeholder="pelicula">
+                <input type="date" name="date" placeholder="fecha">
+                <input type="submit" name="comenzarReserva" value="Reservar" class="b-submit">
+            </fieldset>
+        </form>
+    </section>
+
+    <section>
+        <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+        <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+        <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+        <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+        <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+        <article>
+            <p>titulo</p>
+            <p>duracion</p>
+        </article>
+    </section>
 {{/inline}}
 
 {{parts/base}}
