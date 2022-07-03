@@ -13,14 +13,14 @@ class CarouselComponent {
                 id: 'carousel-component-style-link',
                 type: 'text/css',
                 rel: 'stylesheet',
-                href: './scripts/components/styles/carousel.css',
+                href: './scripts/components/carousel/carousel.component.css',
             },
             this.onLoadScript.bind(this),
         );
     }
 
     onLoadScript() {
-        return;
+        // return;
         const slidesContainer =
             this.carouselElement.children['carousel-slides-container'];
 
@@ -146,7 +146,7 @@ class CarouselComponent {
         }
 
         // Display visible the selected slide
-        slides[newIndex - 1].style.display = 'inline-block';
+        slides[newIndex - 1].style.display = 'block';
         // Display visible the selected dot
         dots[newIndex - 1].classList.add('active');
 
@@ -202,9 +202,10 @@ class CarouselComponent {
     createSlideDotsElements(slides) {
         const dotsContainerElement = document.createElement('section');
         dotsContainerElement.id = 'carousel-dots-container';
-        dotsContainerElement.style.textAlign = 'center';
-        dotsContainerElement.style.backgroundColor = 'transparent';
-        dotsContainerElement.style.margin = '1rem';
+        dotsContainerElement.classList.add('carousel-dots-container');
+        // dotsContainerElement.style.textAlign = 'center';
+        // dotsContainerElement.style.backgroundColor = 'transparent';
+        // dotsContainerElement.style.margin = '1rem';
 
         for (let index = 0; index < slides.length; index++) {
             const slide = slides[index];

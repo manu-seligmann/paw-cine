@@ -6,6 +6,7 @@
 .slides-container {
 	position: relative;
 	height: 100%;
+	background-color: var(--principal-color1);
 }
 
 .carousel-slide {
@@ -17,7 +18,7 @@
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+	/* -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */
 }
 
 .carousel-slide-description {
@@ -42,12 +43,13 @@
 	text-align: left;
 	font-size: 2rem;
 	font-weight: bold;
-	/* margin: 1rem; */
+	max-width: 70%;
 }
 
 .description-text {
 	font-size: 1.5rem;
 	text-align: left;
+	max-width: 70%;
 }
 
 .description-text-item {
@@ -112,6 +114,15 @@
 
 .prev:hover, .next:hover {
 	background-color: var(--fondo);
+}
+
+.carousel-dots-container {
+	text-align: center;
+	background-color: transparent;
+	position: absolute;
+	bottom: 0.5rem;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .dot {

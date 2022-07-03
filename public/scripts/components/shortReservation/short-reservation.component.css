@@ -1,0 +1,11 @@
+.short-reservation {
+    background-color: var(--principal-color1);
+    padding: 1rem;
+}
+
+.short-reservation-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-color1);
+    text-align: center;
+}

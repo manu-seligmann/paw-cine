@@ -2,13 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
     Utils.addScript(
         {
             id: 'carousel-component-script',
-            src: './scripts/components/carousel.component.js',
+            src: './scripts/components/carousel/carousel.component.js',
         },
-        this.onLoadScript,
+        onCarouselScriptLoad,
+    );
+
+    Utils.addScript(
+        {
+            id: 'short-reservation-component-script',
+            src: './scripts/components/shortReservation/short-reservation.component.js',
+        },
+        onShortReservationScriptLoad,
     );
 });
 
-function onLoadScript() {
+function onCarouselScriptLoad() {
     const carouselId = 'carousel';
     const startCarouselAt = 1;
     const carouselComponent = new CarouselComponent(
@@ -16,4 +24,9 @@ function onLoadScript() {
         startCarouselAt,
     );
     carouselComponent.render();
+}
+
+function onShortReservationScriptLoad() {
+    const shortReservationComponent = new ShortReservationComponent();
+    shortReservationComponent.render();
 }

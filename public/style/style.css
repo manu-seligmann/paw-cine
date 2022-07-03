@@ -73,58 +73,20 @@ nav a:hover {
 	background-color: var(--secondary-color2);
 }
 
-/* Reserva */
-
-h2 {
-    padding: 2rem;
-    text-align: center;
-    font-size: var(--header-description-size);
-    color: var(----principal-color2);
-}
-
-form {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	padding: 1rem;
-}
-
-fieldset {
-	display: flex;
-	justify-content:center;
-	align-items: center;
-	width:100%;
-}
-
-input {
-	/* padding: 1rem;
-	width: 30%;
-	background-color: var(--secondary-color2) ;
-	font-size: var(--nav-font-size);
-	font-weight: 800;
-	color:  var(--principal-color2); */
-}
-
-input::placeholder {
-	/* color:  var(--principal-color2); */
-}
-
-
-article {
-	border: 1px solid var(--text);
-	display: inline-block;
-	padding: 10rem 7rem ;
-	margin: 0.5rem;
-}
-
-/* footer */
+/* footer Style */
 footer {
+	background-color: var(--principal-color2);
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(1, 1fr);
 	grid-gap: 20px;
 	padding: 4rem 1rem;
 	text-align: center;
+}
+
+footer a {
+	color: white;
+	text-decoration: none;
 }
 
 /* Custom classes */
@@ -145,7 +107,7 @@ footer {
 	background-size: 25px 25px;
     width: 25px;
     height: 25px;
-    margin: 0 6px 0 0; 
+    margin: 0 6px 0 0;
 }
 
 .button-color-1 {
